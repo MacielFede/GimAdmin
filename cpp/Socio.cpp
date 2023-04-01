@@ -2,24 +2,24 @@
 
 
 Socio::Socio(string ciSocio, string nombreSocio){
-  ci = ciSocio;
-  nombre = nombreSocio;
+  this->ci = ciSocio;
+  this->nombre = nombreSocio;
 }
 
 string Socio::getCI(){
-  return ci;
+  return this->ci;
 }
 
 string Socio::getNombre(){
-  return nombre;
+  return this->nombre;
 }
 
 void Socio::setCI(string nuevaCI){
-  ci = nuevaCI;
+  this->ci = nuevaCI;
 }
 
 void Socio::setNombre(string nuevoNombre){
-  nombre = nuevoNombre;
+  this->nombre = nuevoNombre;
 }
 
 Socio::~Socio(){}
