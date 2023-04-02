@@ -1,24 +1,16 @@
 #include "../h/DTSocio.h"
 
 DtSocio::DtSocio(string ciSocio, string nombreSocio){
-  ci = ciSocio;
-  nombre = nombreSocio;
+  this->ci = ciSocio;
+  this->nombre = nombreSocio;
 }
 
 string DtSocio::getCI(){
-  return ci;
+  return this->ci;
 }
 
 string DtSocio::getNombre(){
-  return nombre;
-}
-
-void DtSocio::setCI(string nuevaCI){
-  ci = nuevaCI;
-}
-
-void DtSocio::setNombre(string nuevoNombre){
-  nombre = nuevoNombre;
+  return this->nombre;
 }
 
 DtSocio::~DtSocio(){}

@@ -15,9 +15,6 @@ public:
   string getCI();
   string getNombre();
   //Getters
-  void setCI(string nuevaCi);
-  void setNombre(string nuevoNombre);
-  //Setters
   ~DtSocio();
   //Destructor
 };
