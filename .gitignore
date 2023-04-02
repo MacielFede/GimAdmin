@@ -1,0 +1,14 @@
+#Zip
+Gr3_Lab1.zip
+
+#Configuracion de vscode
+.vscode
+
+#Ejecutable 
+main
+
+# Archivos compilados
+*.slo
+*.lo
+*.o
+*.obj
