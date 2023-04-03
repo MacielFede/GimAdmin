@@ -11,7 +11,7 @@ class Entrenamiento : public Clase
 		bool enRambla;
 	public:
 		// Constructor
-		Entrenamiento(int id, string nombre, int turno, bool enRambla); 
+		Entrenamiento(int id, string nombre, Turno turno, int tope, bool enRambla); 
 	  
 		// Getters
 		bool getEnRambla();

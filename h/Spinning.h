@@ -11,7 +11,7 @@ class Spinning : public Clase
 		int cantBicicletas;
 	public:
 		// Constructores
-		Spinning(int id, string nombre, Turno turno, int cantBicicletas); 
+		Spinning(int id, string nombre, Turno turno, int tope, int cantBicicletas); 
 	  
 		// Getters
 		int getCantB();

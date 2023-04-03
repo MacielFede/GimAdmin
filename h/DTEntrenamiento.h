@@ -11,13 +11,16 @@ class DtEntrenamiento : public DtClase
 		bool enRambla;
 	public:
 		// Constructor
-		DtEntrenamiento(int id, string nombre, int turno, bool enRambla);  
+		DtEntrenamiento(int id, string nombre, Turno turno, int tope, bool enRambla);  
 	  
 		// Getters
 		bool getEnRambla();
 		
 		//Destructor
 		~DtEntrenamiento();  
+
+		// Sobrecarga de operador <<
+		friend ostream &operator<<(ostream &os, const DtEntrenamiento &dtEntrenamiento);
 };
 
 #endif

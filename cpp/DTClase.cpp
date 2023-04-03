@@ -1,9 +1,10 @@
 #include "../h/DTClase.h"
 
-DtClase::DtClase(int id, string nombre, Turno turno) {
+DtClase::DtClase(int id, string nombre, Turno turno, int tope) {
     this->id = id;
     this->nombre = nombre;
     this->turno = turno;
+    this->tope = tope;
 }
 
 int DtClase::getId() {
@@ -16,6 +17,10 @@ string DtClase::getNombre() {
 
 Turno DtClase::getTurno() {
     return this->turno;
+}
+
+int DtClase::getTope() {
+    return this->tope;
 }
 
 DtClase::~DtClase() {}

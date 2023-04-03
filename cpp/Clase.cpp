@@ -1,9 +1,10 @@
 #include "../h/Clase.h"
 
-Clase::Clase(int id, string nombre, Turno turno) {
+Clase::Clase(int id, string nombre, Turno turno, int tope) {
     this->id = id;
     this->nombre = nombre;
     this->turno = turno;
+    this->tope = tope;
 }
 
 int Clase::getId() {
@@ -18,6 +19,10 @@ Turno Clase::getTurno() {
     return this->turno;
 }
 
+int Clase::getTope() {
+    return this->tope;
+}
+
 void Clase::setId(int nuevoId) {
     this->id = nuevoId;
 }
@@ -28,6 +33,10 @@ void Clase::setNombre(string nuevoNombre) {
 
 void Clase::setTurno(Turno nuevoTurno) {
     this->turno = nuevoTurno;
+}
+
+void Clase::setTope(int nuevoTope) {
+    this->tope = nuevoTope;
 }
 
 Clase::~Clase() {}
