@@ -24,31 +24,26 @@ int main()
         switch (comando[0])
         {
         case '1':
-            /* code */
             string *nombreS, *ciS;
             //Uso punteros para no crear variables que no se si voy a usar al inicio de main. 
             //Ademas para borrar la memoria usada una vez que no la necesito mas.
             cout << "Agregar socio:\nIngrese la cedula del socio: ";
             getline(cin, *ciS);
             fflush(stdin);
-            //if(sistema.socioYaExiste(ciS)){}
-            //else{
-                cout<<"Ingrese el nombre del socio: ";
-                sistema.agregarSocio(*ciS, *nombreS);
-            //}
+            cout<<"Ingrese el nombre del socio: ";
+            getline(cin, *nombreS);
+            fflush(stdin);
+            sistema.agregarSocio(*ciS, *nombreS);
             delete nombreS;
             delete ciS;
             break;
         case '2':
-            /* code */
             cout << "Agregar clase:\n ";//Que le pedimos al usuario?
             break;
         case '3':
-            /* code */
             cout << "Agregar inscripcion:\n";//String ciSocio, int idClase, Fecha fecha
             break;
         case '4':
-            /* code */
             cout << "Borrar inscripcion:\n";//string ciSocio, int idClase)
             break;
         case '5':
@@ -58,7 +53,10 @@ int main()
             cout<< "Ingresaste un comando inexistente.\n";
             break;
         }
-        
+        //TODO: probando cosas
+        //! probando
+        //?require
+        //*dale
     }while(comando[0] != '5');
     delete &sistema;
     return 0;
