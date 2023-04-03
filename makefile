@@ -40,11 +40,11 @@ make: main.cpp Socio.o Inscripcion.o Clase.o Sistema.o DTSocio.o DTInscripcion.o
 
 #Crea un zip (hay que tener zip instalado en linux) con todos los archivos pertinentes
 zip: $(LAB1) Makefile
-	rm -f Lab1.zip
-	zip Lab1.zip $(LAB1) Makefile
+	rm -f Gr3_Lab1.zip
+	zip -r Gr3_Lab1.zip $(LAB1) Makefile
 
 #Borra todo
 clean:
 	-rm -f o/*.o
 	-rm -f main
-	-rm -f Lab1.zip
+	-rm -f Gr3_Lab1.zip
