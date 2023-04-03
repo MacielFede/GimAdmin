@@ -1,8 +1,8 @@
 #include "../h/Inscripcion.h"
 
-Inscripcion::Inscripcion(string ciSocio, int idClase, DtFecha fecha)
+Inscripcion::Inscripcion(Socio socio, int idClase, DtFecha fecha)
 {
-    this->ciSocio = ciSocio;
+    this->socio = socio;
     this->idClase = idClase;
     this->fecha = fecha;
 }
@@ -11,9 +11,9 @@ Inscripcion::~Inscripcion(){}
 
 #pragma region Getters
 
-string Inscripcion::getCiSocio() 
+Socio Inscripcion::getSocio() 
 {
-    return this->ciSocio;
+    return this->socio;
 }
 
 int Inscripcion::getIdClase() 
@@ -30,9 +30,9 @@ DtFecha Inscripcion::getFecha()
 
 #pragma region Setters
 
-void Inscripcion::setCiSocio(string ciSocio)
+void Inscripcion::setSocio(Socio socio)
 { 
-    this->ciSocio = ciSocio;
+    this->socio = socio;
 }
 
 void Inscripcion::setIdClase(int idClase)

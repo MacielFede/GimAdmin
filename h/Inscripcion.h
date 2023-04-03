@@ -3,18 +3,19 @@
 
 #include <iostream>
 #include "DTFecha.h"
+#include "Socio.h"
 using namespace std;
 
 class Inscripcion
 {
 private:
-    string ciSocio;
+    Socio socio;
     int idClase;
     DtFecha fecha;
 public:
 #pragma region Instance
 
-    Inscripcion(string ciSocio, int idClase, DtFecha fecha); //Completo
+    Inscripcion(Socio socio, int idClase, DtFecha fecha); //Completo
     Inscripcion();
     ~Inscripcion();
 
@@ -22,7 +23,7 @@ public:
 
 #pragma region Getters
 
-    string getCiSocio();
+    Socio getSocio();
     int getIdClase();
     DtFecha getFecha();
 
@@ -30,7 +31,7 @@ public:
 
 #pragma region Setters
 
-    void setCiSocio(string ciSocio);
+    void setSocio(Socio socio);
     void setIdClase(int idClase);
     void setFecha(DtFecha fecha);
 

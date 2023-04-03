@@ -1,7 +1,4 @@
 /* Juan
-*   
-*   Hay que hablar las fuciones que queremos o necesitamos implementar.
-*    Tambien como se van a usar las clases bases y DT
 */
 
 #ifndef DTINSCRIPCION_H
@@ -10,26 +7,27 @@
 #include <iostream>
 #include "DTFecha.h"
 #include "Inscripcion.h"
+#include "DTSocio.h"
 
 using namespace std;
 
-class DTInscripcion
+class DtInscripcion
 {
-    string ciSocio;
+    DtSocio dtSocio;
     int idClase;
     DtFecha fecha;
 public:
 #pragma region Instance
 
-    DTInscripcion(string ciSocio, int idClase, DtFecha fecha); //Completo
-    DTInscripcion(Inscripcion inscripcion); //A partir de una inscripcion?
-    ~DTInscripcion();
+    DtInscripcion(DtSocio dtSocio, int idClase, DtFecha fecha); //Completo
+    DtInscripcion(Inscripcion inscripcion); //A partir de una inscripcion?
+    ~DtInscripcion();
 
 #pragma endregion
 
 #pragma region Getters
 
-    string getCiSocio();
+    DtSocio getSocio();
     int getIdClase();
     DtFecha getFecha();
 

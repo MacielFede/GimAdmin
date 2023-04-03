@@ -1,34 +1,34 @@
 #include "../h/DTInscripcion.h"
 
-DTInscripcion::DTInscripcion(string ciSocio, int idClase, DtFecha fecha)
+DtInscripcion::DtInscripcion(DtSocio dtSocio, int idClase, DtFecha fecha)
 {
-    this->ciSocio = ciSocio;
+    this->dtSocio = dtSocio;
     this->idClase = idClase;
     this->fecha = fecha;
 }
 
-DTInscripcion::DTInscripcion(Inscripcion inscripcion)
+DtInscripcion::DtInscripcion(Inscripcion inscripcion)
 {
-    this->ciSocio = inscripcion.getCiSocio();
+    this->dtSocio = dtSocio;
     this->idClase = inscripcion.getIdClase();
     this->fecha = inscripcion.getFecha();
 }
 
-DTInscripcion::~DTInscripcion(){}
+DtInscripcion::~DtInscripcion(){}
 
 #pragma region Getters
 
-string DTInscripcion::getCiSocio() 
+DtSocio DtInscripcion::getSocio() 
 {
-    return this->ciSocio;
+    return this->dtSocio;
 }
 
-int DTInscripcion::getIdClase() 
+int DtInscripcion::getIdClase() 
 {
     return this->idClase;
 }
 
-DtFecha DTInscripcion::getFecha() 
+DtFecha DtInscripcion::getFecha() 
 {
     return this->fecha;
 }
