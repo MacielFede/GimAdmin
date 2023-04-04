@@ -11,7 +11,7 @@ class DtSpinning : public DtClase
 		int cantBicicletas;
 	public:
 		// Constructor
-		DtSpinning(int id, std::string nombre, Turno turno, int tope, int cantBicicletas); 
+		DtSpinning(int id, std::string nombre, Turno turno, int cantBicicletas); 
 	  
 		// Getters
 		int getCantB();
@@ -20,7 +20,7 @@ class DtSpinning : public DtClase
 		~DtSpinning();  
 
 		// Sobrecarga de operador <<
-		friend ostream &operator<<(ostream &os, const DtSpinning &dtSpinning);
+		friend ostream &operator<<(ostream &os,DtSpinning &dtSpinning);
 };
 
 #endif

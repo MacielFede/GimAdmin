@@ -1,7 +1,8 @@
 #include "../h/DTEntrenamiento.h"
 
-DtEntrenamiento::DtEntrenamiento(int id, string nombre, Turno turno, int tope, bool enRambla) : DtClase(id, nombre, turno, tope) {
+DtEntrenamiento::DtEntrenamiento(int id, string nombre, Turno turno, bool enRambla) : DtClase(id, nombre, turno) {
     this->enRambla = enRambla;
+    this->inscripciones = new DtInscripcion[(this->enRambla ? 20 : 10)];
 }
 
 bool DtEntrenamiento::getEnRambla() {
@@ -10,7 +11,7 @@ bool DtEntrenamiento::getEnRambla() {
 
 DtEntrenamiento::~DtEntrenamiento() {}
 
-ostream& operator<<(ostream& os, const DtEntrenamiento& dtEntrenamiento) {
+ostream& operator<<(ostream& os, DtEntrenamiento& dtEntrenamiento) {
     os << "Id Clase: " << dtEntrenamiento.getId() << endl;
     os << "Nombre: " << dtEntrenamiento.getNombre() << endl;
     // Muestra el turno correspondiente
@@ -30,7 +31,7 @@ ostream& operator<<(ostream& os, const DtEntrenamiento& dtEntrenamiento) {
     }
     os << endl;
 
-    os << "En rambla: " << dtEntrenamiento.getEnRambla() ? "Si" : "No" << endl;
+    os << "En rambla: " << (dtEntrenamiento.getEnRambla() ? "Si" : "No") << endl;
 
     return os;
 }

@@ -1,7 +1,8 @@
 #include "../h/Spinning.h"
 
-Spinning::Spinning(int id, std::string nombre, Turno turno, int tope, int cantBicicletas) : Clase(id, nombre, turno, tope) {
+Spinning::Spinning(int id, string nombre, Turno turno, int cantBicicletas) : Clase(id, nombre, turno) {
     this->cantBicicletas = cantBicicletas;
+    this->inscripciones = new Inscripcion[this->cantBicicletas];
 }
 
 int Spinning::getCantB() {
@@ -15,5 +16,5 @@ void Spinning::setCantB(int cantBicicletas) {
 Spinning::~Spinning() {}
 
 int Spinning::cupo() {
-    return (this->cantBicicletas-Clase::getTope());
+    return (this->cantBicicletas-this->getTope());
 }

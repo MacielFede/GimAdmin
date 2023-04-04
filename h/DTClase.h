@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Turno.h"
+#include "DTInscripcion.h"
 using namespace std;
 
 class DtClase
@@ -12,9 +13,11 @@ class DtClase
 		string nombre;
 		Turno turno;
 		int tope;
+	protected:
+		DtInscripcion * inscripciones;
 	public:
 		// Constructor
-		DtClase(int id, string nombre, Turno turno, int tope); 
+		DtClase(int id, string nombre, Turno turno); 
 	  
 		// Getters
 		int getId();
