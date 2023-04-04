@@ -7,21 +7,23 @@ Inscripcion::Inscripcion(Socio socio, int idClase, DtFecha fecha)
     this->fecha = fecha;
 }
 
-Inscripcion::~Inscripcion(){}
+Inscripcion::Inscripcion() {}
+
+Inscripcion::~Inscripcion() {}
 
 #pragma region Getters
 
-Socio Inscripcion::getSocio() 
+Socio Inscripcion::getSocio()
 {
     return this->socio;
 }
 
-int Inscripcion::getIdClase() 
+int Inscripcion::getIdClase()
 {
     return this->idClase;
 }
 
-DtFecha Inscripcion::getFecha() 
+DtFecha Inscripcion::getFecha()
 {
     return this->fecha;
 }
@@ -31,17 +33,17 @@ DtFecha Inscripcion::getFecha()
 #pragma region Setters
 
 void Inscripcion::setSocio(Socio socio)
-{ 
+{
     this->socio = socio;
 }
 
 void Inscripcion::setIdClase(int idClase)
-{ 
+{
     this->idClase = idClase;
 }
 
 void Inscripcion::setFecha(DtFecha fecha)
-{ 
+{
     this->fecha = fecha;
 }
 

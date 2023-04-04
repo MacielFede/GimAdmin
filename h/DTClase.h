@@ -26,7 +26,7 @@ class DtClase
 		int getTope();
 		
 		//Destructor
-		~DtClase();  
+		virtual ~DtClase() = 0;  
 };
 
 #endif
