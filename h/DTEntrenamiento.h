@@ -20,7 +20,7 @@ class DtEntrenamiento : public DtClase
 		~DtEntrenamiento();  
 
 		// Sobrecarga de operador <<
-		friend ostream &operator<<(ostream &os, const DtEntrenamiento &dtEntrenamiento);
+		friend ostream &operator<<(ostream &os, DtEntrenamiento &dtEntrenamiento);
 };
 
 #endif

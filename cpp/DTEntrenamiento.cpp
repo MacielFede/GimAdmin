@@ -10,7 +10,7 @@ bool DtEntrenamiento::getEnRambla() {
 
 DtEntrenamiento::~DtEntrenamiento() {}
 
-ostream& operator<<(ostream& os, const DtEntrenamiento& dtEntrenamiento) {
+ostream& operator<<(ostream& os, DtEntrenamiento& dtEntrenamiento) {
     os << "Id Clase: " << dtEntrenamiento.getId() << endl;
     os << "Nombre: " << dtEntrenamiento.getNombre() << endl;
     // Muestra el turno correspondiente
@@ -30,7 +30,7 @@ ostream& operator<<(ostream& os, const DtEntrenamiento& dtEntrenamiento) {
     }
     os << endl;
 
-    os << "En rambla: " << dtEntrenamiento.getEnRambla() ? "Si" : "No" << endl;
+    os << "En rambla: " << (dtEntrenamiento.getEnRambla() ? "Si" : "No") << endl;
 
     return os;
 }

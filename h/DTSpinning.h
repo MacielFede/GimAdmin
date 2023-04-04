@@ -20,7 +20,7 @@ class DtSpinning : public DtClase
 		~DtSpinning();  
 
 		// Sobrecarga de operador <<
-		friend ostream &operator<<(ostream &os, const DtSpinning &dtSpinning);
+		friend ostream &operator<<(ostream &os,DtSpinning &dtSpinning);
 };
 
 #endif

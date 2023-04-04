@@ -10,7 +10,7 @@ int DtSpinning::getCantB() {
 
 DtSpinning::~DtSpinning() {}
 
-ostream& operator<<(ostream& os, const DtSpinning& dtSpinning) {
+ostream& operator<<(ostream& os, DtSpinning& dtSpinning) {
     os << "Id Clase: " << dtSpinning.getId() << endl;
     os << "Nombre: " << dtSpinning.getNombre() << endl;
     // Muestra el turno correspondiente
