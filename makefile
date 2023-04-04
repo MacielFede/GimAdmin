@@ -2,7 +2,7 @@
 CC = g++
 
 # Flags del compilador
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -Werror
 
 # Ejecutable
 PRINCIPAL = main
@@ -13,7 +13,7 @@ CPPDIR = cpp
 ODIR = o
 
 # Clases
-CLASES = Socio Inscripcion Clase Sistema DTSocio DTInscripcion DTClase DTFecha Turno
+CLASES = Socio Inscripcion Clase Sistema DTSocio DTInscripcion DTClase DTFecha Turno Helpers
 
 # Archivos
 HS = $(CLASES:%=$(HDIR)/%.h)
@@ -35,7 +35,7 @@ $(PRINCIPAL).o:$(PRINCIPAL).cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 #Linkea todos los .o con el main.cpp y crea el ejecutable llamado main
-make: main.cpp Socio.o Inscripcion.o Clase.o Sistema.o DTSocio.o DTInscripcion.o DTClase.o DTFecha.o Turno.o
+make: main.cpp Socio.o Inscripcion.o Clase.o Sistema.o DTSocio.o DTInscripcion.o DTClase.o DTFecha.o Helpers.o
 	$(CC) $(CFLAGS) -o main main.cpp o/*.o
 
 #Crea un zip (hay que tener zip instalado en linux) con todos los archivos pertinentes

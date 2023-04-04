@@ -12,6 +12,7 @@ Sistema& Sistema::getSistema() {
 }
 
 Sistema::Sistema() {
+    this->cantSocios = 0;
 }
 
 

@@ -8,8 +8,9 @@ class Sistema
 {
 private:
 
-    static const int MAX_SOCIOS = 10;
-    static const int MAX_CLASES = 5;
+    static const int MAX_SOCIOS = 30;
+    static const int MAX_CLASES = 10;
+    int cantSocios;
     Socio * socios[MAX_SOCIOS];
     //Clase * clases[MAX_CLASES];
     static Sistema* instancia;
