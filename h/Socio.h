@@ -11,6 +11,7 @@ private:
 
 public:
   Socio(string ci, string nombre);
+  Socio();
   //Constructor
   string getCI();
   string getNombre();
