@@ -11,6 +11,7 @@ private:
 
 public:
   DtSocio(string ci, string nombre);
+  DtSocio();
   //Constructor
   string getCI();
   string getNombre();
