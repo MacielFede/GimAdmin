@@ -5,6 +5,9 @@ DtSocio::DtSocio(string ciSocio, string nombreSocio){
   this->nombre = nombreSocio;
 }
 
+DtSocio::DtSocio() {
+}
+
 string DtSocio::getCI(){
   return this->ci;
 }

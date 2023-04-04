@@ -2,7 +2,7 @@
 CC = g++
 
 # Flags del compilador
-CFLAGS = -g -Wall -Werror
+CFLAGS = -g -Wall -Werror -Wno-unknown-pragmas
 
 # Ejecutable
 PRINCIPAL = main

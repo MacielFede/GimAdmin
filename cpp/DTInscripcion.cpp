@@ -9,7 +9,6 @@ DtInscripcion::DtInscripcion(DtSocio dtSocio, int idClase, DtFecha fecha)
 
 DtInscripcion::DtInscripcion(Inscripcion inscripcion)
 {
-    this->dtSocio = dtSocio;
     this->idClase = inscripcion.getIdClase();
     this->fecha = inscripcion.getFecha();
 }
