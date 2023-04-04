@@ -2,6 +2,7 @@
 #define HELPERS_H
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 void getInt(string mensaje, int &numero);
