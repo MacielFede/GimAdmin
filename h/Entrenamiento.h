@@ -29,6 +29,7 @@ public:
 	// Funciones auxiliares
 	bool existeInscripcion(string ciS);
 	void agregarInscripcion(Inscripcion &ins);
+	void borrarInscripcion(string ciS);
 };
 
 #endif

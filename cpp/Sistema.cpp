@@ -70,7 +70,7 @@ void Sistema::agregarSocio(string ci, string nombre)
                 {
                     this->socios[i] = nuevoSocio;
                     this->cantSocios += 1;
-                    cout << "Socio agregado!" << endl;
+                    cout << "\nSocio agregado!" << endl;
                     break; // salir del ciclo una vez que se agrega el socio
                 }
             }
@@ -104,7 +104,7 @@ void Sistema::agregarClase(DtClase &clase)
                     {
                         this->clases[i] = nuevaClase;
                         this->cantClases += 1;
-                        cout << "Clase agregada!" << endl;
+                        cout << "\nClase agregada!" << endl;
                         break; // salir del ciclo una vez que se agrega la clase
                     }
                 }
@@ -128,7 +128,7 @@ void Sistema::agregarClase(DtClase &clase)
                     {
                         this->clases[i] = nuevoEntrenamiento;
                         this->cantClases += 1;
-                        cout << "Clase agregada!" << endl;
+                        cout << "\nClase agregada!" << endl;
                         break; // salir del ciclo una vez que se agrega la clase
                     }
                 }
@@ -155,29 +155,29 @@ void Sistema::agregarInscripcion(string ciSocio, int idClase, DtFecha fecha)
         // Si la clase no existe
         if (clase == nullptr)
         {
-            throw new invalid_argument("La clase a la que quiere anotarse no existe\n");
+            throw invalid_argument("La clase a la que quiere anotarse no existe\n");
         }
         // Si el socio no existe
         else if (socio == nullptr)
         {
-            throw new invalid_argument("El socio que quiere anotar no existe.\n");
+            throw invalid_argument("El socio que quiere anotar no existe.\n");
         }
         // Si ya no hay cupos
         else if (clase->cupo() == 0)
         {
-            throw new invalid_argument("La clase a la que quiere anotarse ya no tiene mas cupos.\n");
+            throw invalid_argument("La clase a la que quiere anotarse ya no tiene mas cupos.\n");
         }
         // Si ya existe la inscripcion
         else if (clase->existeInscripcion(ciSocio))
         {
-            throw new invalid_argument("El socio ya se ha anotado a esta clase.\n");
+            throw invalid_argument("El socio ya se ha anotado a esta clase.\n");
         }
         // Agrego la inscripcion
         else
         {
             Inscripcion *nuevaInscripcion = new Inscripcion(*socio, idClase, fecha);
             clase->agregarInscripcion(*nuevaInscripcion);
-            cout << "La inscripcion se ha realizado correctamente.\n";
+            cout << "\nLa inscripcion se ha realizado correctamente.\n";
         }
     }
     catch (const std::exception &e)
@@ -186,7 +186,39 @@ void Sistema::agregarInscripcion(string ciSocio, int idClase, DtFecha fecha)
     }
 }
 
-void Sistema::borrarInscripcion(string ciSocio, int idClase) {}
+void Sistema::borrarInscripcion(string ciSocio, int idClase)
+{
+    try
+    {
+        Socio *socio = this->existeSocio(ciSocio);
+        Clase *clase = this->existeClase(idClase);
+        // Si la clase no existe
+        if (clase == nullptr)
+        {
+            throw invalid_argument("La clase no existe.\n");
+        }
+        // Si el socio no existe
+        else if (socio == nullptr)
+        {
+            throw invalid_argument("El socio no existe.\n");
+        }
+        // Si no existe la inscripcion
+        else if (!clase->existeInscripcion(ciSocio))
+        {
+            throw invalid_argument("La inscripcion que quiere borrar no existe.\n");
+        }
+        // Borro inscripcion
+        else
+        {
+            clase->borrarInscripcion(ciSocio);
+            cout << "\nLa inscripcion fue eliminada.\n";
+        }
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
 
 Sistema::~Sistema()
 {

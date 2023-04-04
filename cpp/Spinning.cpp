@@ -29,7 +29,7 @@ int Spinning::cupo()
 
 bool Spinning::existeInscripcion(string ciS)
 {
-    int max = this->getCantB();
+    int max = this->getTope();
     for (int i = 0; i < max; i++)
     {
         if (this->inscripciones[i].getSocio().getCI() == ciS)
@@ -45,10 +45,45 @@ void Spinning::agregarInscripcion(Inscripcion &ins)
     {
         int tope = this->getTope();
         this->inscripciones[tope] = ins;
-        this->setTope(tope++);
+        this->setTope(tope += 1);
     }
     catch (const std::exception &e)
     {
         std::cerr << e.what() << '\n';
+    }
+}
+
+void Spinning::borrarInscripcion(string ciS)
+{
+    int max = this->getCantB();
+    int index = -1;
+
+    // Buscar el índice de la inscripción a borrar
+    for (int i = 0; i < max; i++)
+    {
+        if (this->inscripciones[i].getSocio().getCI() == ciS)
+        {
+            index = i;
+            break;
+        }
+    }
+
+    if (index != -1) // Si se encontró la inscripción a borrar
+    {
+        if (max == 1) // Si hay solo una inscripción en el arreglo
+        {
+            this->setTope(0);
+        }
+        else
+        {
+            // Mover las demás inscripciones una posición hacia el principio del arreglo
+            for (int i = index + 1; i < max; i++)
+            {
+                this->inscripciones[i - 1] = this->inscripciones[i];
+            }
+
+            // Actualizar el tope del arreglo
+            this->setTope(this->getTope() - 1);
+        }
     }
 }

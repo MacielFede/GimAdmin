@@ -42,6 +42,7 @@ public:
 	// Funciones auxiliares
 	virtual bool existeInscripcion(string ciS) = 0;
 	virtual void agregarInscripcion(Inscripcion &ins) = 0;
+	virtual void borrarInscripcion(string ciS) = 0;
 };
 
 #endif

@@ -30,16 +30,16 @@ int main()
         switch (comando[0])
         {
         case '1':
-            cout << "Agregar socio:\nIngrese la cedula del socio: ";
+            cout << "\nAgregar socio:\nIngrese la cedula del socio: ";
             getline(cin, ciS);
             cout << "Ingrese el nombre del socio: ";
             getline(cin, nombreS);
-            cout << "nombre: " << nombreS << " cedula: " << ciS << endl;
+            // cout << "nombre: " << nombreS << " cedula: " << ciS << endl;
             sistema.agregarSocio(ciS, nombreS);
             break;
 
         case '2':
-            cout << "Agregar clase:\nIngrese el numero identificador de la clase: ";
+            cout << "\nAgregar clase:\nIngrese el numero identificador de la clase: ";
             getInt("", idClase);
             cout << "Ingrese el nombre de la clase: ";
             getline(cin, nomClase);
@@ -83,7 +83,7 @@ int main()
             break;
 
         case '3':
-            cout << "Agregar inscripcion:\nIngrese la cedula del socio: ";
+            cout << "\nAgregar inscripcion:\nIngrese la cedula del socio: ";
             getline(cin, ciS);
             getInt("Ingrese el numero identificador de la clase a la que se quiere anotar: ", idClase);
             getInt("Ingrese el numero del dia de hoy: ", dia);
@@ -95,11 +95,11 @@ int main()
             break;
 
         case '4':
-            cout << "Borrar inscripcion:\nIngrese la cedula del socio: ";
+            cout << "\nBorrar inscripcion:\nIngrese la cedula del socio: ";
             getline(cin, ciS);
             getInt("Ingrese el numero id de la clase: ", idClase);
             cout << "cedula:" << ciS << " id clase: " << idClase << endl;
-            // TODO: sistema.borrarInscripcion(ciS, idClase)
+            sistema.borrarInscripcion(ciS, idClase);
             break;
 
         case '5':
