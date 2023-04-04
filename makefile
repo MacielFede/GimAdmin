@@ -13,7 +13,7 @@ CPPDIR = cpp
 ODIR = o
 
 # Clases
-CLASES = Socio Inscripcion Clase Sistema DTSocio DTInscripcion DTClase DTFecha Turno Helpers
+CLASES = Socio Inscripcion Clase Entrenamiento Spinning Sistema DTSocio DTInscripcion DTClase DTEntrenamiento DTSpinning DTFecha Helpers
 
 # Archivos
 HS = $(CLASES:%=$(HDIR)/%.h)
@@ -35,8 +35,9 @@ $(PRINCIPAL).o:$(PRINCIPAL).cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 #Linkea todos los .o con el main.cpp y crea el ejecutable llamado main
-make: main.cpp Socio.o Inscripcion.o Clase.o Sistema.o DTSocio.o DTInscripcion.o DTClase.o DTFecha.o Helpers.o
+make: main.cpp Socio.o Inscripcion.o Clase.o Entrenamiento.o Spinning.o Sistema.o DTSocio.o DTInscripcion.o DTClase.o DTEntrenamiento.o DTSpinning.o DTFecha.o Helpers.o
 	$(CC) $(CFLAGS) -o main main.cpp o/*.o
+
 
 #Crea un zip (hay que tener zip instalado en linux) con todos los archivos pertinentes
 zip: $(LAB1) Makefile
@@ -47,4 +48,5 @@ zip: $(LAB1) Makefile
 clean:
 	-rm -f o/*.o
 	-rm -f main
+	-rm -f main.o
 	-rm -f Gr3_Lab1.zip

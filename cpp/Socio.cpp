@@ -8,7 +8,7 @@ Socio::Socio(string ciSocio, string nombreSocio){
 
 Socio::Socio(){
   this->ci = "111111";
-  this->nombre = "Federico";
+  this->nombre = "Daniel 'El macho' Gonzalez";
 }
 
 string Socio::getCI(){

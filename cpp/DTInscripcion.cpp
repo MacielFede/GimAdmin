@@ -13,21 +13,25 @@ DtInscripcion::DtInscripcion(Inscripcion inscripcion)
     this->fecha = inscripcion.getFecha();
 }
 
-DtInscripcion::~DtInscripcion(){}
+DtInscripcion::DtInscripcion()
+{
+}
+
+DtInscripcion::~DtInscripcion() {}
 
 #pragma region Getters
 
-DtSocio DtInscripcion::getSocio() 
+DtSocio DtInscripcion::getSocio()
 {
     return this->dtSocio;
 }
 
-int DtInscripcion::getIdClase() 
+int DtInscripcion::getIdClase()
 {
     return this->idClase;
 }
 
-DtFecha DtInscripcion::getFecha() 
+DtFecha DtInscripcion::getFecha()
 {
     return this->fecha;
 }

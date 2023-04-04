@@ -1,8 +1,13 @@
 #include "../h/DTEntrenamiento.h"
 
 DtEntrenamiento::DtEntrenamiento(int id, string nombre, Turno turno, bool enRambla) : DtClase(id, nombre, turno) {
+    int maximo = enRambla ? 20 : 10;
     this->enRambla = enRambla;
-    this->inscripciones = new DtInscripcion[(this->enRambla ? 20 : 10)];
+    this->inscripciones = new DtInscripcion[maximo];
+    for (int i = 0; i < maximo; i++)
+    {
+        this->inscripciones[i] = DtInscripcion(); // inicializar instancias vacias
+    }
 }
 
 bool DtEntrenamiento::getEnRambla() {
