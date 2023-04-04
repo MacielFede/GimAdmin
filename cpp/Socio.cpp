@@ -6,6 +6,11 @@ Socio::Socio(string ciSocio, string nombreSocio){
   this->nombre = nombreSocio;
 }
 
+Socio::Socio(){
+  this->ci = 111111;
+  this->nombre = "Federico";
+}
+
 string Socio::getCI(){
   return this->ci;
 }
