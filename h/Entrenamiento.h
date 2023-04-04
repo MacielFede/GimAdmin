@@ -7,23 +7,28 @@ using namespace std;
 
 class Entrenamiento : public Clase
 {
-	private:
-		bool enRambla;
-	public:
-		// Constructor
-		Entrenamiento(int id, string nombre, Turno turno, bool enRambla); 
-	  
-		// Getters
-		bool getEnRambla();
-		
-		// Setters
-		void setEnRambla(bool enRambla);
-		
-		//Destructor
-		~Entrenamiento();  
+private:
+	bool enRambla;
 
-		// Método
-		int cupo();
+public:
+	// Constructor
+	Entrenamiento(int id, string nombre, Turno turno, bool enRambla);
+
+	// Getters
+	bool getEnRambla();
+
+	// Setters
+	void setEnRambla(bool enRambla);
+
+	// Destructor
+	~Entrenamiento();
+
+	// Método
+	int cupo();
+
+	// Funciones auxiliares
+	bool existeInscripcion(string ciS);
+	void agregarInscripcion(Inscripcion &ins);
 };
 
 #endif

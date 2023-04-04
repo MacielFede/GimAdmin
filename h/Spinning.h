@@ -8,23 +8,28 @@ using namespace std;
 
 class Spinning : public Clase
 {
-	private:
-		int cantBicicletas;
-	public:
-		// Constructores
-		Spinning(int id, string nombre, Turno turno, int cantBicicletas); 
-	  
-		// Getters
-		int getCantB();
-		
-		// Setters
-		void setCantB(int cantBicicletas);
-		
-		//Destructor
-		~Spinning();  
+private:
+	int cantBicicletas;
 
-		// Método
-		int cupo(); 
+public:
+	// Constructores
+	Spinning(int id, string nombre, Turno turno, int cantBicicletas);
+
+	// Getters
+	int getCantB();
+
+	// Setters
+	void setCantB(int cantBicicletas);
+
+	// Destructor
+	~Spinning();
+
+	// Método
+	int cupo();
+
+	// Funciones auxiliares
+	bool existeInscripcion(string ciS);
+	void agregarInscripcion(Inscripcion &ins);
 };
 
 #endif

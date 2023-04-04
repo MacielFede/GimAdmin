@@ -10,6 +10,7 @@ int main()
     string comando, nombreS, ciS, nomClase, tipoClase, enRambla;
     int idClase, dia, mes, anio, turno, cantBicis;
     Turno nuevoTurno;
+    DtFecha *nuevaFecha;
 
     cout << "\nBienvenido a su mejor gimnasio. Para ejecutar los comandos debe ingresar el numero del mismo.\n";
     do
@@ -63,7 +64,7 @@ int main()
 
                 DtClase *nuevaClase = new DtSpinning(idClase, nomClase, nuevoTurno, cantBicis);
                 sistema.agregarClase(*nuevaClase);
-                cout << "id clase: " << idClase << " nombre clase: " << nomClase << " turno: " << nuevoTurno << " Tipo de clase: " << tipoClase << " cantidad bicis: " << cantBicis << endl;
+                // cout << "id clase: " << idClase << " nombre clase: " << nomClase << " turno: " << nuevoTurno << " Tipo de clase: " << tipoClase << " cantidad bicis: " << cantBicis << endl;
             }
 
             // Creamos clase de Entrenamiento
@@ -71,25 +72,26 @@ int main()
             {
                 do
                 {
-                    cout << "Indique si el entrenamiento sera en rambla o no[S/N]: ";
+                    cout << "Indique si el entrenamiento sera en rambla o no [S/N]: ";
                     getline(cin, enRambla);
                 } while (enRambla[0] != 'S' && enRambla[0] != 's' && enRambla[0] != 'N' && enRambla[0] != 'n');
                 bool esEnRambla = (enRambla[0] == 'S' || enRambla[0] == 's') ? true : false;
                 DtClase *nuevaClase = new DtEntrenamiento(idClase, nomClase, nuevoTurno, esEnRambla);
                 sistema.agregarClase(*nuevaClase);
-                cout << "id clase: " << idClase << " nombre clase: " << nomClase << " turno: " << turno << " tipo de clase: " << tipoClase << " en rambla: " << enRambla << endl;
+                // cout << "id clase: " << idClase << " nombre clase: " << nomClase << " turno: " << turno << " tipo de clase: " << tipoClase << " en rambla: " << enRambla << endl;
             }
             break;
 
         case '3':
             cout << "Agregar inscripcion:\nIngrese la cedula del socio: ";
             getline(cin, ciS);
-            getInt("Ingrese el numero identificador de la clase: ", idClase);
+            getInt("Ingrese el numero identificador de la clase a la que se quiere anotar: ", idClase);
             getInt("Ingrese el numero del dia de hoy: ", dia);
             getInt("Ingrese el numero del dia de mes actual: ", mes);
             getInt("Ingrese el numero del dia de anio actual: ", anio);
-            cout << "cedula: " << ciS << " id clase: " << idClase << " fecha: " << dia << "/" << mes << "/" << anio << endl;
-            // TODO: sistema.agregarInscripcion(ciS, idClase, dia, mes, anio)
+            nuevaFecha = new DtFecha(dia, mes, anio);
+            sistema.agregarInscripcion(ciS, idClase, *nuevaFecha);
+            // cout << "cedula: " << ciS << " id clase: " << idClase << " fecha: " << dia << "/" << mes << "/" << anio << endl;
             break;
 
         case '4':

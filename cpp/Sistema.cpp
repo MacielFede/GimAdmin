@@ -27,28 +27,28 @@ Sistema::Sistema()
     }
 }
 
-bool Sistema::existeSocio(string ciS)
+Socio *Sistema::existeSocio(string ciS)
 {
     for (int i = 0; i < MAX_SOCIOS; i++)
     {
         if (this->socios[i] != nullptr && this->socios[i]->getCI() == ciS)
         {
-            return true; // encontre el socio buscado
+            return this->socios[i]; // encontre el socio buscado
         }
     }
-    return false; // no encontre el socio buscado
+    return nullptr; // no encontre el socio buscado
 }
 
-bool Sistema::existeClase(int idClase)
+Clase *Sistema::existeClase(int idClase)
 {
     for (int i = 0; i < MAX_CLASES; i++)
     {
         if (this->clases[i] != nullptr && this->clases[i]->getId() == idClase)
         {
-            return true; // existe la clase
+            return this->clases[i]; // devuelve la instancia de la clase
         }
     }
-    return false; // no existe la clase
+    return nullptr; // no se encontró la clase
 }
 
 void Sistema::agregarSocio(string ci, string nombre)
@@ -56,9 +56,8 @@ void Sistema::agregarSocio(string ci, string nombre)
     try
     {
         // Si existe el socio, tiro el error.
-        bool existeSocio = this->existeSocio(ci);
-        cout << existeSocio << endl;
-        if (existeSocio)
+        Socio *existeSocio = this->existeSocio(ci);
+        if (existeSocio != nullptr)
         {
             throw invalid_argument("\nEl socio que quiere agregar ya existe.");
         }
@@ -91,7 +90,7 @@ void Sistema::agregarClase(DtClase &clase)
         if (DtSpinning *claseSpinning = dynamic_cast<DtSpinning *>(&clase))
         {
             // Si existe tiro error.
-            if (this->existeClase(clase.getId()))
+            if (this->existeClase(clase.getId()) != nullptr)
             {
                 throw invalid_argument("\nLa clase que quiere agregar ya existe.");
             }
@@ -115,7 +114,7 @@ void Sistema::agregarClase(DtClase &clase)
         else if (DtEntrenamiento *claseEntrenamiento = dynamic_cast<DtEntrenamiento *>(&clase))
         {
             // Si existe tiro error.
-            if (this->existeClase(clase.getId()))
+            if (this->existeClase(clase.getId()) != nullptr)
             {
                 throw invalid_argument("\nLa clase que quiere agregar ya existe.");
             }
@@ -147,8 +146,47 @@ void Sistema::agregarClase(DtClase &clase)
     }
 }
 
+void Sistema::agregarInscripcion(string ciSocio, int idClase, DtFecha fecha)
+{
+    try
+    {
+        Clase *clase = this->existeClase(idClase);
+        Socio *socio = this->existeSocio(ciSocio);
+        // Si la clase no existe
+        if (clase == nullptr)
+        {
+            throw new invalid_argument("La clase a la que quiere anotarse no existe\n");
+        }
+        // Si el socio no existe
+        else if (socio == nullptr)
+        {
+            throw new invalid_argument("El socio que quiere anotar no existe.\n");
+        }
+        // Si ya no hay cupos
+        else if (clase->cupo() == 0)
+        {
+            throw new invalid_argument("La clase a la que quiere anotarse ya no tiene mas cupos.\n");
+        }
+        // Si ya existe la inscripcion
+        else if (clase->existeInscripcion(ciSocio))
+        {
+            throw new invalid_argument("El socio ya se ha anotado a esta clase.\n");
+        }
+        // Agrego la inscripcion
+        else
+        {
+            Inscripcion *nuevaInscripcion = new Inscripcion(*socio, idClase, fecha);
+            clase->agregarInscripcion(*nuevaInscripcion);
+            cout << "La inscripcion se ha realizado correctamente.\n";
+        }
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
+
 void Sistema::borrarInscripcion(string ciSocio, int idClase) {}
-void Sistema::agregarInscripcion(string ciSocio, int idClase, DtFecha fecha) {}
 
 Sistema::~Sistema()
 {

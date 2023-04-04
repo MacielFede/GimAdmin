@@ -32,10 +32,10 @@ public:
     static Sistema &getSistema();
     // crea una instancia de Sistema si es que no se creo y la retorna.
 
-    bool existeSocio(string ciS);
+    Socio * existeSocio(string ciS);
     // Se fija si existe el socio.
 
-    bool existeClase(int idClase);
+    Clase * existeClase(int idClase);
     // Se fija si existe la clase
 
     void agregarSocio(string ci, string nombre);
