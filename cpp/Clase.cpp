@@ -1,10 +1,10 @@
 #include "../h/Clase.h"
 
-Clase::Clase(int id, string nombre, Turno turno, int tope) {
+Clase::Clase(int id, string nombre, Turno turno) {
     this->id = id;
     this->nombre = nombre;
     this->turno = turno;
-    this->tope = tope;
+    this->tope = 0;
 }
 
 int Clase::getId() {

@@ -19,6 +19,7 @@ class DtInscripcion
 public:
 #pragma region Instance
 
+    DtInscripcion(); //Agrego constructor por default para crearlos en las Clases (Axel)
     DtInscripcion(DtSocio dtSocio, int idClase, DtFecha fecha); //Completo
     DtInscripcion(Inscripcion inscripcion); //A partir de una inscripcion?
     ~DtInscripcion();

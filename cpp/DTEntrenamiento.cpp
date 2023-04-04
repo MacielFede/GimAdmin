@@ -1,7 +1,8 @@
 #include "../h/DTEntrenamiento.h"
 
-DtEntrenamiento::DtEntrenamiento(int id, string nombre, Turno turno, int tope, bool enRambla) : DtClase(id, nombre, turno, tope) {
+DtEntrenamiento::DtEntrenamiento(int id, string nombre, Turno turno, bool enRambla) : DtClase(id, nombre, turno) {
     this->enRambla = enRambla;
+    this->inscripciones = new DtInscripcion[(this->enRambla ? 20 : 10)];
 }
 
 bool DtEntrenamiento::getEnRambla() {

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Turno.h"
+#include "Inscripcion.h"
 using namespace std;
 
 class Clase 
@@ -12,9 +13,11 @@ class Clase
 		string nombre;
 		Turno turno;
 		int tope;
+	protected:
+		Inscripcion * inscripciones;
 	public:
 		// Constructor
-		Clase(int id, string nombre, Turno turno, int tope); 
+		Clase(int id, string nombre, Turno turno); 
 	  
 		// Getters
 		int getId();
@@ -33,6 +36,6 @@ class Clase
 		
 		// Métodos
 		virtual int cupo() = 0;
-}		
+};
 
 #endif

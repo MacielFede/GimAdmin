@@ -1,7 +1,8 @@
 #include "../h/Entrenamiento.h"
 
-Entrenamiento::Entrenamiento(int id, string nombre, Turno turno, int tope, bool enRambla) : Clase(id, nombre, turno, tope) {
+Entrenamiento::Entrenamiento(int id, string nombre, Turno turno, bool enRambla) : Clase(id, nombre, turno) {
     this->enRambla = enRambla;
+    this->inscripciones = new Inscripcion[(this->enRambla ? 20 : 10)];
 }
 
 bool Entrenamiento::getEnRambla() {
@@ -15,5 +16,5 @@ void Entrenamiento::setEnRambla(bool enRambla) {
 Entrenamiento::~Entrenamiento() {}
 
 int Entrenamiento::cupo() {
-    return this->enRambla ? (20-Clase::getTope()) : (10-Clase::getTope());
+    return this->enRambla ? (20-this->getTope()) : (10-this->getTope());
 }

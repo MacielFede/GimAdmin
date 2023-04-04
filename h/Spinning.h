@@ -2,6 +2,7 @@
 #define SPINNING_H
 
 #include <iostream>
+#include <string>
 #include "Clase.h"
 using namespace std;
 
@@ -11,7 +12,7 @@ class Spinning : public Clase
 		int cantBicicletas;
 	public:
 		// Constructores
-		Spinning(int id, string nombre, Turno turno, int tope, int cantBicicletas); 
+		Spinning(int id, string nombre, Turno turno, int cantBicicletas); 
 	  
 		// Getters
 		int getCantB();

@@ -11,7 +11,7 @@ class DtEntrenamiento : public DtClase
 		bool enRambla;
 	public:
 		// Constructor
-		DtEntrenamiento(int id, string nombre, Turno turno, int tope, bool enRambla);  
+		DtEntrenamiento(int id, string nombre, Turno turno, bool enRambla);  
 	  
 		// Getters
 		bool getEnRambla();
