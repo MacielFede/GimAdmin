@@ -11,16 +11,19 @@ class DtClase
 		int id;
 		string nombre;
 		Turno turno;
-		int tope;
 	public:
 		// Constructor
-		DtClase(int id, string nombre, Turno turno, int tope); 
+		DtClase(int id, string nombre, Turno turno); 
 	  
 		// Getters
 		int getId();
 		string getNombre();
 		Turno getTurno();
-		int getTope();
+		
+		// Setters No van por ser un DT?
+		// void setId(int nuevoId);
+		// void setNombre(string nuevoNombre);
+		// void setTurno(Turno nuevoTurno);
 		
 		//Destructor
 		~DtClase();  
