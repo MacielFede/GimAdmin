@@ -12,12 +12,13 @@ private:
 public:
   DtSocio(string ci, string nombre);
   DtSocio();
-  //Constructor
+  // Constructor
   string getCI();
   string getNombre();
-  //Getters
+  // Getters
   ~DtSocio();
-  //Destructor
+  // Destructor
+  friend ostream &operator<<(ostream &o, DtSocio &s);
 };
 
 #endif

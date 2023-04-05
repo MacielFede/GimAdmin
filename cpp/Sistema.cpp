@@ -28,40 +28,73 @@ Sistema::Sistema()
     }
 }
 
-bool Sistema::podemosAgregarSocios(){
+bool Sistema::podemosAgregarSocios()
+{
     return (this->cantSocios < this->MAX_SOCIOS);
 }
 
-bool Sistema::podemosAgregarClases(){
+bool Sistema::podemosAgregarClases()
+{
     return (this->cantClases < this->MAX_CLASES);
 }
 
-bool Sistema::hayClases(){
+bool Sistema::hayClases()
+{
     return (this->cantClases > 0);
 }
 
-bool Sistema::haySocios(){
+bool Sistema::haySocios()
+{
     return (this->cantSocios > 0);
 }
 
-void Sistema::imprimirClases(){
-    for(int i = 0; i < this->cantClases; i++){
-        if (Spinning *objSpinning = dynamic_cast<Spinning *>(this->clases[i])){
+void Sistema::imprimirSocios()
+{
+    try
+    {
+        for (int i = 0; i < this->cantSocios; i++)
+        {
+            // Si existe socio, imprimo
+            if (this->socios[i] != nullptr)
+            {
+                // Para no escribir 'this->socios[i]'
+                Socio *socio = this->socios[i];
+                DtSocio socioAImprimir = DtSocio(socio->getCI(), socio->getNombre());
+                cout << socioAImprimir << endl;
+                // La memoria de socioAImprimir se borra sola al salir de la funcion.
+            }
+        }
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
+
+void Sistema::imprimirClases()
+{
+    for (int i = 0; i < this->cantClases; i++)
+    {
+        if (Spinning *objSpinning = dynamic_cast<Spinning *>(this->clases[i]))
+        {
 
             DtSpinning *claseAImp = new DtSpinning(objSpinning->getId(), objSpinning->getNombre(), objSpinning->getTurno(), objSpinning->getCantB());
             cout << *claseAImp << endl;
             // Uso * para desreferenciar el puntero, si no imprime su direccion de memoria e ignora el operator override
             delete claseAImp;
+        }
+        else if (Entrenamiento *objEntrenamiento = dynamic_cast<Entrenamiento *>(this->clases[i]))
+        {
 
-        }else if(Entrenamiento *objEntrenamiento = dynamic_cast<Entrenamiento *>(this->clases[i])){
-            
             DtEntrenamiento *claseAImp = new DtEntrenamiento(objEntrenamiento->getId(), objEntrenamiento->getNombre(), objEntrenamiento->getTurno(), objEntrenamiento->getEnRambla());
             cout << *claseAImp << endl;
             // Uso * para desreferenciar el puntero, si no imprime su direccion de memoria e ignora el operator override
             delete claseAImp;
-
-        }else {
-            cout << "No pudimos imprimir\n" << endl;
+        }
+        else
+        {
+            cout << "No pudimos imprimir\n"
+                 << endl;
         }
     }
 }
@@ -194,22 +227,22 @@ void Sistema::agregarInscripcion(string ciSocio, int idClase, DtFecha fecha)
         // Si la clase no existe
         if (clase == nullptr)
         {
-            throw invalid_argument("La clase a la que quiere anotarse no existe\n");
+            throw invalid_argument("\nLa clase a la que quiere anotarse no existe\n");
         }
         // Si el socio no existe
         else if (socio == nullptr)
         {
-            throw invalid_argument("El socio que quiere anotar no existe.\n");
+            throw invalid_argument("\nEl socio que quiere anotar no existe.\n");
         }
         // Si ya no hay cupos
         else if (clase->cupo() == 0)
         {
-            throw invalid_argument("La clase a la que quiere anotarse ya no tiene mas cupos.\n");
+            throw invalid_argument("\nLa clase a la que quiere anotarse ya no tiene mas cupos.\n");
         }
         // Si ya existe la inscripcion
         else if (clase->existeInscripcion(ciSocio))
         {
-            throw invalid_argument("El socio ya se ha anotado a esta clase.\n");
+            throw invalid_argument("\nEl socio ya se ha anotado a esta clase.");
         }
         // Agrego la inscripcion
         else
@@ -234,17 +267,17 @@ void Sistema::borrarInscripcion(string ciSocio, int idClase)
         // Si la clase no existe
         if (clase == nullptr)
         {
-            throw invalid_argument("La clase no existe.\n");
+            throw invalid_argument("\nLa clase no existe.\n");
         }
         // Si el socio no existe
         else if (socio == nullptr)
         {
-            throw invalid_argument("El socio no existe.\n");
+            throw invalid_argument("\nEl socio no existe.\n");
         }
         // Si no existe la inscripcion
         else if (!clase->existeInscripcion(ciSocio))
         {
-            throw invalid_argument("La inscripcion que quiere borrar no existe.\n");
+            throw invalid_argument("\nLa inscripcion que quiere borrar no existe.\n");
         }
         // Borro inscripcion
         else
