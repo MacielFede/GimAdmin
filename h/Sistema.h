@@ -32,6 +32,21 @@ public:
     static Sistema &getSistema();
     // crea una instancia de Sistema si es que no se creo y la retorna.
 
+    bool podemosAgregarSocios();
+    // Retorna true si hay espacio en el array socios[] (cantSocios < MAX_SOCIOS)
+
+    bool podemosAgregarClases();
+    // Retorna true si hay espacio en el array clases[] (cantClases < MAX_CLASES)
+
+    bool hayClases();
+    //Retorna true si hay al menos 1 clase creada
+    
+    bool haySocios();
+    // Retorna true si hay al menos 1 usuario ingresado
+
+    void imprimirClases();
+    // Imprime todas las clases creadas hasta el momento
+
     Socio * existeSocio(string ciS);
     // Se fija si existe el socio.
 
