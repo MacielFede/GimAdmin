@@ -21,7 +21,8 @@ int main()
         cout << "3 - Agregar inscripcion.\n";
         cout << "4 - Borrar inscripcion.\n";
         cout << "5 - Imprimir clases ingresadas.\n";
-        cout << "6 - Salir.\n\n";
+        cout << "6 - Imprimir socios ingresados.\n";
+        cout << "7 - Salir.\n\n";
 
         fflush(stdin);
         // fflush() limpia el buffer del sistema, como estamos usando el buffer de la libreria std siempre puede quedarnos basura en el buffer
@@ -31,21 +32,25 @@ int main()
         switch (comando[0])
         {
         case '1':
-            if(sistema.podemosAgregarSocios()){
-                cout << "\nAgregar socio:\nIngrese la cedula del socio: ";
+            if (sistema.podemosAgregarSocios())
+            {
+                cout << "\nAgregar socio:\n\nIngrese la cedula del socio: ";
                 getline(cin, ciS);
                 cout << "Ingrese el nombre del socio: ";
                 getline(cin, nombreS);
                 sistema.agregarSocio(ciS, nombreS);
-            }else{
+            }
+            else
+            {
                 cout << "\nLlenamos el gimnasio de socios, no entran mas.\n";
             }
             break;
 
         case '2':
-            if(sistema.podemosAgregarClases()){
+            if (sistema.podemosAgregarClases())
+            {
 
-                cout << "\nAgregar clase:\n";
+                cout << "\nAgregar clase:\n\n";
                 getInt("Ingrese el numero identificador de la clase: ", idClase);
                 cout << "Ingrese el nombre de la clase: ";
                 getline(cin, nomClase);
@@ -84,16 +89,20 @@ int main()
                     DtClase *nuevaClase = new DtEntrenamiento(idClase, nomClase, nuevoTurno, esEnRambla);
                     sistema.agregarClase(*nuevaClase);
                 }
-
-            }else{
+            }
+            else
+            {
                 cout << "\nLos profes no dan abasto, no ingresaremos mas clases.\n";
             }
             break;
 
         case '3':
-            if(!sistema.hayClases() || !sistema.haySocios()){
+            if (!sistema.hayClases() || !sistema.haySocios())
+            {
                 cout << "\nDebes ingresar al menos 1 socio y al menos 1 clase en el gimnasio.\n";
-            }else{
+            }
+            else
+            {
                 cout << "\nAgregar inscripcion:\nIngrese la cedula del socio: ";
                 getline(cin, ciS);
                 getInt("Ingrese el numero identificador de la clase a la que se quiere anotar: ", idClase);
@@ -106,9 +115,12 @@ int main()
             break;
 
         case '4':
-            if(!sistema.hayClases() || !sistema.haySocios()){
+            if (!sistema.hayClases() || !sistema.haySocios())
+            {
                 cout << "\nDebes ingresar al menos 1 socio y al menos 1 clase en el gimnasio.\n";
-            }else{ 
+            }
+            else
+            {
                 cout << "\nBorrar inscripcion:\nIngrese la cedula del socio: ";
                 getline(cin, ciS);
                 getInt("Ingrese el numero id de la clase: ", idClase);
@@ -117,15 +129,30 @@ int main()
             break;
 
         case '5':
-            if(sistema.hayClases()){
-                cout << "\nTodas las clases ingresadas:\n";
+            if (sistema.hayClases())
+            {
+                cout << "\nTodas las clases ingresadas:\n\n";
                 sistema.imprimirClases();
-            }else{
+            }
+            else
+            {
                 cout << "\nNo hay clases ingresadas.\n";
             }
             break;
 
         case '6':
+            if (sistema.haySocios())
+            {
+                cout << "\nTodos los socios ingresados:\n\n";
+                sistema.imprimirSocios();
+            }
+            else
+            {
+                cout << "\nNo hay socios ingresados.\n";
+            }
+            break;
+
+        case '7':
             cout << "\nGracias por usar el sistema!\n";
             break;
 
@@ -133,7 +160,7 @@ int main()
             cout << "Ingresaste un comando inexistente.\n";
             break;
         }
-    } while (comando[0] != '6');
+    } while (comando[0] != '7');
     delete &sistema;
     return 0;
 }

@@ -39,18 +39,21 @@ public:
     // Retorna true si hay espacio en el array clases[] (cantClases < MAX_CLASES)
 
     bool hayClases();
-    //Retorna true si hay al menos 1 clase creada
-    
+    // Retorna true si hay al menos 1 clase creada
+
     bool haySocios();
     // Retorna true si hay al menos 1 usuario ingresado
 
     void imprimirClases();
     // Imprime todas las clases creadas hasta el momento
 
-    Socio * existeSocio(string ciS);
+    void imprimirSocios();
+    // Imprime todos los socios creados hasta el momento
+
+    Socio *existeSocio(string ciS);
     // Se fija si existe el socio.
 
-    Clase * existeClase(int idClase);
+    Clase *existeClase(int idClase);
     // Se fija si existe la clase
 
     void agregarSocio(string ci, string nombre);
