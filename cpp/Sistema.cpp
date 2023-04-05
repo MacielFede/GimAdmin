@@ -1,4 +1,5 @@
 #include "../h/Sistema.h"
+#include <iostream>
 
 Sistema *Sistema::instancia = nullptr;
 // Le doy valor a la instancia como null para que solo la primera vez creemos la instancia
@@ -24,6 +25,44 @@ Sistema::Sistema()
     for (int i = 0; i < MAX_CLASES; i++)
     {
         this->clases[i] = nullptr; // inicializar los punteros en nullptr
+    }
+}
+
+bool Sistema::podemosAgregarSocios(){
+    return (this->cantSocios < this->MAX_SOCIOS);
+}
+
+bool Sistema::podemosAgregarClases(){
+    return (this->cantClases < this->MAX_CLASES);
+}
+
+bool Sistema::hayClases(){
+    return (this->cantClases > 0);
+}
+
+bool Sistema::haySocios(){
+    return (this->cantSocios > 0);
+}
+
+void Sistema::imprimirClases(){
+    for(int i = 0; i < this->cantClases; i++){
+        if (Spinning *objSpinning = dynamic_cast<Spinning *>(this->clases[i])){
+
+            DtSpinning *claseAImp = new DtSpinning(objSpinning->getId(), objSpinning->getNombre(), objSpinning->getTurno(), objSpinning->getCantB());
+            cout << *claseAImp << endl;
+            // Uso * para desreferenciar el puntero, si no imprime su direccion de memoria e ignora el operator override
+            delete claseAImp;
+
+        }else if(Entrenamiento *objEntrenamiento = dynamic_cast<Entrenamiento *>(this->clases[i])){
+            
+            DtEntrenamiento *claseAImp = new DtEntrenamiento(objEntrenamiento->getId(), objEntrenamiento->getNombre(), objEntrenamiento->getTurno(), objEntrenamiento->getEnRambla());
+            cout << *claseAImp << endl;
+            // Uso * para desreferenciar el puntero, si no imprime su direccion de memoria e ignora el operator override
+            delete claseAImp;
+
+        }else {
+            cout << "No pudimos imprimir\n" << endl;
+        }
     }
 }
 
