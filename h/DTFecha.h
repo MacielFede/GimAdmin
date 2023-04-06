@@ -13,6 +13,7 @@ private:
 public:
     DtFecha();
     DtFecha(int d, int m, int a);
+    bool esValida();
     int getDia();
     int getMes();
     int getAnio();
