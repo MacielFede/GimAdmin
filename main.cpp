@@ -110,7 +110,12 @@ int main()
                 getInt("Ingrese el numero del mes actual: ", mes);
                 getInt("Ingrese el numero del anio actual: ", anio);
                 nuevaFecha = new DtFecha(dia, mes, anio);
-                sistema.agregarInscripcion(ciS, idClase, *nuevaFecha);
+                if (nuevaFecha->esValida())
+                {
+                    sistema.agregarInscripcion(ciS, idClase, *nuevaFecha);
+                }
+                else
+                    cout << "La inscripcion no se pudo agregar.\n";
             }
             break;
 

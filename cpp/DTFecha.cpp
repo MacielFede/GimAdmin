@@ -17,7 +17,7 @@ DtFecha::DtFecha(int d, int m, int a)
     {
         if (d > 31 || d < 1 || m > 12 || m < 1 || a < 1900)
         {
-            throw invalid_argument("Fecha Incorrecta");
+            throw invalid_argument("\nFecha invalida.");
         }
         this->dia = d;
         this->mes = m;
@@ -27,6 +27,15 @@ DtFecha::DtFecha(int d, int m, int a)
     {
         cout << i.what() << endl;
     }
+}
+
+bool DtFecha::esValida()
+{
+    if (this->dia > 31 || this->dia < 1 || this->mes > 12 || this->mes < 1 || this->anio < 1900)
+    {
+        return false;
+    }
+    return true;
 }
 
 int DtFecha::getDia()

@@ -12,8 +12,8 @@
 class Sistema
 {
 private:
-    static const int MAX_SOCIOS = 30;
-    static const int MAX_CLASES = 10;
+    static const int MAX_SOCIOS = 10;
+    static const int MAX_CLASES = 5;
     int cantSocios;
     int cantClases;
     Socio *socios[MAX_SOCIOS];
