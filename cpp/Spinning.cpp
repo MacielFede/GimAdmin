@@ -45,7 +45,7 @@ void Spinning::agregarInscripcion(Inscripcion &ins)
     {
         int tope = this->getTope();
         this->inscripciones[tope] = ins;
-        this->setTope(tope += 1);
+        this->setTope(tope+1);
     }
     catch (const std::exception &e)
     {

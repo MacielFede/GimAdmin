@@ -46,7 +46,7 @@ void Entrenamiento::agregarInscripcion(Inscripcion &ins)
     {
         int tope = this->getTope();
         this->inscripciones[tope] = ins;
-        this->setTope(tope++);
+        this->setTope(tope+1);
     }
     catch (const std::exception &e)
     {
